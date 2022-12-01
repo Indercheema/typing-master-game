@@ -1,0 +1,240 @@
+@import "./reset.css";
+
+
+
+:root {
+    --app-dark-bg: #1a1d28;
+    --app-red: #ff3c57;
+    --app-green: #33ab4e;
+    --app-purple: #833cff;
+    --app-orange: #ff833c;
+    --app-blue: #3c57ff;
+    --app-blue-hover: #364ee6;
+   }
+
+   
+.container {
+  width: min(100% - 30px, 1380px);
+  margin-inline: auto;
+}
+
+   body {
+    background-color: #aaeecd;
+    height: calc(100vh - 20px);
+   }
+
+   h2  ,p{
+    color: #000;
+   }
+
+   .board {
+    display: flex;
+    color: #000;
+   }
+
+   .clock {
+    display: flex;
+    width: 50%;
+    gap: 10px;
+    align-items: center;
+   }
+
+
+
+   .score {
+    text-align: right;
+    width: 50%;
+   }
+
+   .keyboard {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
+
+
+   .words {
+    font-size: 40px;
+    font-weight: 700;
+    visibility: hidden;
+   }
+
+   .input-div {
+    display: grid;
+    gap: 30px;
+   }
+
+
+.center {
+    /* margin-top: 50px; */
+    height: 100vh;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    place-items: center;
+    text-align: center;
+}
+
+.big-box {
+  box-sizing: border-box;
+  width: 1000px;
+  height: 700px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #e78b89;
+  position: relative;
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, 0.2) inset, -1px -1px 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+.game-name {
+  background-color: #aaeecd;
+  margin-bottom: 40px;
+  line-height: 90px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.game {
+  border: 5px solid #79e4b0;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.game-words {
+  margin-left: 300px;
+  margin-right: 300px;
+  border: 2px solid #000;
+  padding: 10px;
+}
+
+.para{
+  color: #fff;
+  font-size: 12px;
+}
+
+.keyboard > p {
+  font-size: 18px;
+}
+
+
+.btn , .btn2  {
+  margin-top: 30px;
+  font-size: 15px;
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+  line-height: 40px;
+  width: 140px;
+  border-radius: 10px;
+  border: 1px solid --app-green;
+  background-color: #aaeecd;;
+  color: #000;
+  cursor: pointer;
+}
+
+
+
+.btn:hover , .btn2:hover {
+  background-color: #79e4b0;
+  transition: background-color 0.1s ease-in-out;
+}
+
+
+input[type="text"] {
+  width: 400px;
+  /* padding: 20px; */
+  line-height: 40px;
+  border: 1px solid #a9a9a9 ;
+  border-radius: 20px;
+  font-weight: 600;
+  color: #000;
+  text-align: left;
+  text-indent: 10px;
+  background: #fff ;
+  background-size: 15px;
+  transition: border-color 0.25s ease-in-out;
+}
+
+input[type="text"]::placeholder {
+padding: 10px;
+}
+
+input[type="text"]:focus {
+  border: 1px solid rgba(0, 0, 0, 0.9);
+}
+
+.restart {
+  display: grid;
+  gap: 30px;
+visibility: hidden;
+position: absolute;  
+top: 50%;  
+left: 50%;  
+transform: translate(-50%, -50%);
+}
+
+.message {
+  font-size: 25px;
+  width: 200px;
+  position: absolute;  
+  top: 50%;  
+  left: 50%;  
+  transform: translate(-50%, -50%);
+}
+
+.inside-box {
+  width: 90%;
+  position: absolute;  
+  top: 50%;  
+  left: 50%;  
+  transform: translate(-50%, -50%);
+}
+
+.restart p {
+  font-size: 25px
+}
+
+.starting {
+  font-size: 22px
+}
+
+.start-info {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-info i {
+  color: #F7F701;
+}
+
+.play-again {
+  animation: example 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+}
+
+.btn2 {
+  animation: shake 2.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both infinite;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0)      }
+  20%, 80% { transform: translate3d(2px, 0, 0)       }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0) }
+  40%, 60% { transform: translate3d(4px, 0, 0)       }
+}
+
+@keyframes example {
+  from {color: #000;}
+  to {color: #aaeecd;}
+}
+
+
+
+
