@@ -1,3 +1,3 @@
-## My Contacts
+## Typing Master
 
-[Check out here](https://indercheema.github.io/contact/)
+[Click here to PLAY](https://indercheema.github.io/typing-master-game/)
