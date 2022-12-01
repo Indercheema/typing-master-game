@@ -25,14 +25,14 @@ const game = select('.game');
 const mesg = select('.mesg');
 const startInfo = select('.start-info');
 
-const onHits = new Audio('./assets/audio/hits.WAV');
-onHits.type = 'audio/WAV';
-const gameLoad = new Audio('./assets/audio/gameload.WAV');
-gameLoad.type = 'audio/WAV';
-const gameLevel = new Audio('./assets/audio/gamelevel.MP3');
-gameLevel.type = 'audio/MP3';
-const gameIsOver = new Audio('./assets/audio/gameover.WAV');
-gameIsOver.type = 'audio/WAV';
+const onHits = new Audio('./assets/audio/hits.wav');
+onHits.type = 'audio/wav';
+const gameLoad = new Audio('./assets/audio/gameload.wav');
+gameLoad.type = 'audio/wav';
+const gameLevel = new Audio('./assets/audio/gamelevel.mp3');
+gameLevel.type = 'audio/mp3';
+const gameIsOver = new Audio('./assets/audio/gameover.wav');
+gameIsOver.type = 'audio/wav';
 
 
 
