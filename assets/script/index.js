@@ -9,7 +9,6 @@ import { onEvent, getElement, select } from "./utils.js";
 import { Score } from "./Score.js";
 
 
-
 const timer = select('.timer');
 const input = select('.input');
 const btn2 = select('.btn2');
@@ -33,10 +32,6 @@ const gameLevel = new Audio('./assets/audio/gamelevel.mp3');
 gameLevel.type = 'audio/mp3';
 const gameIsOver = new Audio('./assets/audio/gameover.wav');
 gameIsOver.type = 'audio/wav';
-
-
-
-
 
 const gameWords2 = ['dinosaur', 'love', 'pineapple', 'calendar', 'robot', 'building', 'population', 
 'weather', 'bottle', 'history', 'dream', 'character', 'money', 'absolute', 
@@ -75,10 +70,6 @@ let countDown = setInterval(function(){
 }
 
 
-
-
-// const gameWords3 = ['word1', 'word2', 'word3'];
-// let gameWords = [...gameWords3]
 function getWord(gameWords)
 {
   let random = Math.floor(Math.random() * gameWords.length);
