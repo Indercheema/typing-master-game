@@ -5,8 +5,16 @@
     Inderjeet Cheema
 
 */
-import { onEvent, getElement, select } from "./utils.js";
-import { Score } from "./Score.js";
+function onEvent(event, selector, callback) {
+  return selector.addEventListener(event, callback);
+}
+function getElement(selector, parent = document) {
+  return parent.getElementById(selector);
+}
+
+function select(selector, parent = document) {
+  return parent.querySelector(selector);
+}
 
 
 const timer = select('.timer');
@@ -24,6 +32,12 @@ const game = select('.game');
 const mesg = select('.mesg');
 const startInfo = select('.start-info');
 const round = select('.round');
+const btnScore = select('.display-score');
+const dialog = select('dialog');
+const dialogClose = select('.close');
+const list = select('.list');
+const noDataMesg = select('.no-data');
+
 
 
 const onHits = new Audio('./assets/audio/hits.wav');
@@ -54,7 +68,7 @@ let gameWords = [...gameWords2];
 input.disabled = true;
 
 function mytimer() {
-    let totalTime = 5;
+    let totalTime = 10;
 let countDown = setInterval(function(){
   if(totalTime <= 0 ){
     gameLevel.pause();
@@ -64,6 +78,7 @@ let countDown = setInterval(function(){
     gameOver.style.visibility = 'visible';
     game.style.display = 'none';
     words.style.visibility = 'hidden';
+    dialog.showModal();
     displayInfo();
   } else {
     timer.innerHTML = totalTime + " seconds remaining";
@@ -135,8 +150,53 @@ onEvent('click' , btn,  function() {
 });
 
 function displayInfo() {
-    let date = new Date().toString().substring(0, 15);
-    let percentage = ((hits/90) * 100).toFixed(2);
-    const scoreBoard = new Score(date, hits, percentage);
-    showInfo.innerText = `${scoreBoard.playerData()}`
+  let date = new Date().toLocaleDateString('en-ca', { year:"numeric", month:"short", day:"numeric"});
+
+  let percentage = ((hits / 90) * 100).toFixed(2);
+  showInfo.innerText = `Percentage : ${percentage} Date : ${date} Hits : ${hits}`;
+  const savedScores = JSON.parse(localStorage.getItem('savedScores')) || [];
+
+  const result = {
+    score: hits,
+    perc: percentage
+  };
+
+  savedScores.push(result);
+  savedScores.sort((a, b) => b.score - a.score);
+  savedScores.splice(9);
+
+  localStorage.setItem('savedScores', JSON.stringify(savedScores))
+  
+
+  list.innerHTML = savedScores.map(result => {
+    return `<li>${result.score} Words ${result.perc}%</li>`
+  }).join('')
+
 }
+
+
+onEvent('click' , btnScore,  function() {
+  dialog.showModal();
+
+  const savedScores = JSON.parse(localStorage.getItem('savedScores'));
+  
+  if (localStorage.length > 0) {
+    list.innerHTML = savedScores.map(result => {
+      return `<li>${result.score} Words ${result.perc}%</li>`
+    }).join('')
+  } else {
+    noDataMesg.innerText = 'No Save data found';
+  }
+});
+
+onEvent('click' , dialog, function(event) {
+
+  const rect = this.getBoundingClientRect();
+  if (event.clientY < rect.top || event.clientY > rect.bottom || event.clientX < rect.left || event.clientX > rect.right) {
+      dialog.close();
+  }
+});
+
+onEvent('click' , dialogClose , function() {
+  dialog.close();
+});

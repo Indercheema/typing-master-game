@@ -16,7 +16,7 @@
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="assets/style/index.css" media="all">
-    <script src="assets/script/index.js" type="module"></script>
+    <script src="assets/script/index.js" defer></script>
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                         <div class="board">
                             <div class="clock">
                                 <i class="fa-regular fa-clock fa-2xl"></i>
-                                <p class="timer">99 seconds remaining</p>
+                                <p class="timer">10 seconds remaining</p>
                             </div>
                             <div class="score">
                                 <p class="hits"> Hits : 0</p>
@@ -81,6 +81,19 @@
             </div>
         </div>
     </main>
+    <button class="display-score">Show ScoreBoard</button>
+    <dialog >
+        <div class="flex">
+            <i class="fa-solid fa-xmark close"></i>
+        </div>
+        <div class="board-heading">
+            <h2 class="heading">ScoreBoard</h2>
+            <p class="no-data"></p>
+        </div>
+        <div class="board">
+            <ol class="list"></ol>
+        </div>
+    </dialog>
 </body>
 
 </html>
