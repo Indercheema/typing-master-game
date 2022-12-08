@@ -166,7 +166,6 @@ function displayInfo() {
   savedScores.splice(9);
 
   localStorage.setItem('savedScores', JSON.stringify(savedScores))
-  
 
   list.innerHTML = savedScores.map(result => {
     return `<li>${result.score} Words ${result.perc}%</li>`
@@ -179,14 +178,10 @@ onEvent('click' , btnScore,  function() {
   dialog.showModal();
 
   const savedScores = JSON.parse(localStorage.getItem('savedScores'));
-  
-  if (localStorage.length > 0) {
     list.innerHTML = savedScores.map(result => {
       return `<li>${result.score} Words ${result.perc}%</li>`
     }).join('')
-  } else {
-    noDataMesg.innerText = 'No Save data found';
-  }
+
 });
 
 onEvent('click' , dialog, function(event) {
